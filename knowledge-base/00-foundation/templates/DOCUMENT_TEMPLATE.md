@@ -289,3 +289,321 @@ Examples
 Optional sections must add value.
 
 Never add sections only to increase document size.
+
+---
+
+# 8. Standard Document Structure
+
+Every official RAE Platform document should follow the same logical reading order.
+
+The objective is that any person or AI agent can immediately understand where information is located without learning a different structure for every document.
+
+The recommended structure is:
+
+1. Technical Sheet
+2. Executive Summary
+3. Purpose
+4. Scope
+5. Business Context
+6. Technical Context
+7. Functional Description
+8. Architecture
+9. Components
+10. Data Model (if applicable)
+11. APIs (if applicable)
+12. Events (if applicable)
+13. User Experience (if applicable)
+14. AI Context
+15. Knowledge Graph
+16. Risks
+17. Acceptance Criteria
+18. Future Evolution
+19. References
+20. Change History
+
+Documents may omit sections that are not applicable.
+
+However, omitted sections should never reduce understanding of the document.
+
+---
+
+# 9. Technical Sheet
+
+Every document begins with a Technical Sheet.
+
+The Technical Sheet provides a standardized identity for the document.
+
+Minimum fields include:
+
+| Field | Required |
+|--------|----------|
+| Document ID | Yes |
+| Title | Yes |
+| Version | Yes |
+| Status | Yes |
+| Owner | Yes |
+| Category | Yes |
+| Release | Yes |
+| Created | Yes |
+| Last Updated | Yes |
+
+Optional fields:
+
+- Authors
+- Reviewers
+- Tags
+- Domain
+- Module
+- Related Documents
+- Dependencies
+
+Purpose:
+
+Allow humans and AI systems to identify the document immediately.
+
+---
+
+# 10. Executive Summary
+
+## Purpose
+
+Provide a high-level explanation of the document.
+
+This section should answer:
+
+- What is this?
+- Why does it exist?
+- Who should read it?
+
+The Executive Summary should not explain implementation details.
+
+Recommended size:
+
+150–300 words.
+
+---
+
+# 11. Purpose
+
+Describe the specific objective of the document.
+
+A good Purpose section explains:
+
+- Why the document exists.
+- What decision it supports.
+- What problem it solves.
+
+Avoid describing implementation.
+
+---
+
+# 12. Scope
+
+Define the boundaries of the document.
+
+Include:
+
+What is included.
+
+What is intentionally excluded.
+
+Assumptions.
+
+Dependencies.
+
+A document without Scope usually creates ambiguity.
+
+---
+
+# 13. Business Context
+
+Explain the business motivation.
+
+Questions to answer:
+
+Why does this capability matter?
+
+Who benefits?
+
+Which business objective does it support?
+
+Which KPI could improve?
+
+Avoid technical implementation.
+
+---
+
+# 14. Technical Context
+
+Describe the technical environment.
+
+Typical contents:
+
+System architecture.
+
+Dependencies.
+
+External systems.
+
+Internal modules.
+
+Events.
+
+Databases.
+
+Infrastructure.
+
+This section connects business language with engineering language.
+
+---
+
+# 15. Functional Description
+
+Describe how the capability behaves.
+
+Recommended subsections:
+
+Inputs
+
+Outputs
+
+Business Rules
+
+Validations
+
+Exceptions
+
+Expected Results
+
+Avoid implementation code.
+
+Describe behavior.
+
+---
+
+# 16. Architecture
+
+Every architecture description should prioritize visual understanding.
+
+Whenever possible include:
+
+Mermaid
+
+Sequence diagrams
+
+Flowcharts
+
+Component diagrams
+
+State diagrams
+
+Architecture diagrams
+
+Text should complement diagrams.
+
+Never replace them.
+
+---
+
+# 17. Components
+
+List the components involved.
+
+Example:
+
+| Component | Responsibility |
+|------------|----------------|
+| Scheduler | Plans playback |
+| Smart DJ | Generates playlists |
+| Campaign Engine | Injects promotions |
+| Edge Node | Executes locally |
+
+Each component should reference its own specification.
+
+Avoid duplicating documentation.
+
+---
+
+# 18. Data Model
+
+If the document introduces data structures, include:
+
+Entities
+
+Relationships
+
+Identifiers
+
+Lifecycle
+
+Constraints
+
+Use Mermaid ER diagrams whenever possible.
+
+Example:
+
+Customer
+
+↓
+
+Playlist
+
+↓
+
+Track
+
+↓
+
+Campaign
+
+↓
+
+Playback
+
+---
+
+# 19. APIs
+
+If APIs exist:
+
+Document:
+
+Endpoint
+
+Method
+
+Authentication
+
+Inputs
+
+Outputs
+
+Errors
+
+Rate Limits
+
+Related Events
+
+Example requests and responses should use JSON.
+
+---
+
+# 20. Events
+
+Event-driven architecture is encouraged.
+
+Each event should describe:
+
+Name
+
+Producer
+
+Consumers
+
+Payload
+
+Trigger
+
+Expected behavior
+
+Events should reference their own Event Specification whenever available.
