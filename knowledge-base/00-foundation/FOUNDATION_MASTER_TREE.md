@@ -749,3 +749,276 @@ However, existing node identifiers must never change.
 
 Stability of identifiers is mandatory to preserve long-term traceability.
 
+---
+
+# Universal Identification System (UIS)
+
+## Executive Summary
+
+Every significant artifact inside RAE Platform shall have a unique and stable identifier.
+
+Identifiers are not limited to documentation.
+
+They apply to business concepts, software modules, APIs, databases, AI agents, dashboards, reports, campaigns, playlists, tenants, stores, devices and every reusable component of the platform.
+
+The Universal Identification System guarantees long-term traceability across documentation, source code, infrastructure and AI reasoning.
+
+Identifiers must remain immutable during the lifetime of the artifact.
+
+---
+
+# Why Universal IDs?
+
+The primary objective of the UIS is to ensure that every concept has a permanent identity.
+
+Names may change.
+
+Folders may change.
+
+Technologies may change.
+
+Identifiers never change.
+
+---
+
+# Identification Principles
+
+The UIS follows six principles.
+
+## UIS-001
+
+Uniqueness
+
+Every identifier must be globally unique.
+
+---
+
+## UIS-002
+
+Permanence
+
+Identifiers never change after creation.
+
+---
+
+## UIS-003
+
+Readability
+
+Identifiers should be short and human-readable.
+
+---
+
+## UIS-004
+
+Technology Independence
+
+Identifiers must never expose implementation details.
+
+Incorrect:
+
+MOD-MUREKA
+
+Correct:
+
+MOD-012
+
+---
+
+## UIS-005
+
+Semantic Stability
+
+Identifiers describe identity, not implementation.
+
+---
+
+## UIS-006
+
+Scalability
+
+The identification system must support thousands of artifacts.
+
+---
+
+# Official Prefixes
+
+## Documentation
+
+| Prefix | Description |
+|---------|-------------|
+| DOC | Documentation |
+| STD | Standard |
+| TPL | Template |
+| ADR | Architecture Decision |
+| DEC | Decision |
+| RFC | Request for Comments |
+| MAN | Manifesto |
+
+---
+
+## Business
+
+| Prefix | Description |
+|---------|-------------|
+| CAP | Capability |
+| KPI | KPI |
+| CMP | Campaign |
+| PRM | Promotion |
+| PLN | Playlist |
+| SCH | Schedule |
+
+---
+
+## Platform
+
+| Prefix | Description |
+|---------|-------------|
+| MOD | Module |
+| API | API |
+| EVT | Event |
+| DB | Database Entity |
+| JOB | Background Job |
+| SVC | Service |
+| CFG | Configuration |
+
+---
+
+## Artificial Intelligence
+
+| Prefix | Description |
+|---------|-------------|
+| AI | AI Agent |
+| MCP | MCP Server |
+| TOOL | AI Tool |
+| MEM | Memory |
+| PROMPT | Prompt |
+| FLOW | AI Workflow |
+
+---
+
+## Infrastructure
+
+| Prefix | Description |
+|---------|-------------|
+| TEN | Tenant |
+| STO | Store |
+| DEV | Device |
+| EDGE | Edge Node |
+| ENV | Environment |
+| DEP | Deployment |
+
+---
+
+## User Experience
+
+| Prefix | Description |
+|---------|-------------|
+| UX | UX Flow |
+| UI | UI Component |
+| SCR | Screen |
+| DASH | Dashboard |
+| WID | Widget |
+
+---
+
+## Analytics
+
+| Prefix | Description |
+|---------|-------------|
+| REP | Report |
+| MET | Metric |
+| DIM | Dimension |
+| FACT | Fact |
+| ALERT | Alert |
+
+---
+
+# Identifier Format
+
+Identifiers follow the format:
+
+PREFIX-NNNN
+
+Examples
+
+DOC-0001
+
+CAP-0042
+
+MOD-0015
+
+API-0103
+
+AI-0008
+
+TEN-0031
+
+---
+
+# Reserved Ranges
+
+To maintain consistency, identifier ranges are reserved.
+
+| Range | Purpose |
+|---------|----------|
+| 0001–0999 | Foundation |
+| 1000–1999 | Business |
+| 2000–2999 | Product |
+| 3000–3999 | Architecture |
+| 4000–4999 | AI |
+| 5000–5999 | Infrastructure |
+| 6000–6999 | UX |
+| 7000–7999 | Analytics |
+| 8000–8999 | Operations |
+| 9000–9999 | Reserved |
+
+---
+
+# Cross-System Traceability
+
+A single identifier should be traceable across:
+
+- Documentation
+- Source Code
+- Database
+- API
+- Event Bus
+- Monitoring
+- Dashboards
+- AI Context
+- Git Commits
+- Release Notes
+
+This creates end-to-end traceability.
+
+---
+
+# Naming vs Identification
+
+Names are descriptive.
+
+Identifiers are permanent.
+
+Example.
+
+Name
+
+Campaign Engine
+
+Identifier
+
+MOD-021
+
+If tomorrow the module becomes "Promotion Engine", the identifier remains unchanged.
+
+---
+
+# Future Expansion
+
+New prefixes may be introduced only after architectural approval.
+
+Existing prefixes must never be reused with a different meaning.
+
+This preserves historical consistency across the entire Knowledge Base.
+
