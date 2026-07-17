@@ -243,3 +243,216 @@ Every document receives a dependency level.
 | DDL-4 | Implementation documents |
 
 Dependency levels help determine construction order and reduce circular dependencies.
+
+---
+
+# Repository Architecture
+
+The RAE Platform Knowledge Base is organized as a domain-driven knowledge system.
+
+The folder hierarchy is only one representation of the documentation.
+
+The logical architecture is defined by Knowledge Domains, document relationships, and dependency levels.
+
+The repository must evolve without requiring structural reorganizations.
+
+Every new document must fit into this architecture.
+
+---
+
+# Knowledge Domains
+
+The repository is divided into independent domains.
+
+Each domain owns a specific type of knowledge.
+
+```
+Knowledge Base
+│
+├── 00-foundation
+├── 01-business
+├── 02-product
+├── 03-architecture
+├── 04-modules
+├── 05-ai
+├── 06-user-experience
+├── 07-data
+├── 08-api
+├── 09-infrastructure
+├── 10-security
+├── 11-analytics
+├── 12-operations
+├── 13-brand
+├── 14-roadmap
+├── 15-decisions
+├── 16-releases
+└── assets
+```
+
+The numbering is intentional.
+
+It creates a stable navigation order independent of alphabetical sorting.
+
+---
+
+# Domain Responsibilities
+
+| Domain | Responsibility |
+|---------|----------------|
+| 00-foundation | Documentation standards, templates and governance |
+| 01-business | Business vision, market, tenants and commercial strategy |
+| 02-product | Product capabilities, roadmap and features |
+| 03-architecture | System architecture, diagrams and technical decisions |
+| 04-modules | Functional modules and specifications |
+| 05-ai | AI agents, prompts, orchestration and MCP integrations |
+| 06-user-experience | UX, UI, Design System and interaction patterns |
+| 07-data | Database, schemas, entities and relationships |
+| 08-api | Public and internal APIs |
+| 09-infrastructure | Cloud, deployment, CI/CD and environments |
+| 10-security | Authentication, authorization and compliance |
+| 11-analytics | KPIs, metrics, attribution and reporting |
+| 12-operations | Operational procedures and runbooks |
+| 13-brand | Brand identity, visual language and marketing assets |
+| 14-roadmap | Product roadmap and planning |
+| 15-decisions | ADRs, architectural decisions and RFCs |
+| 16-releases | Release notes and version history |
+| assets | Shared images, diagrams, icons and resources |
+
+---
+
+# Repository Philosophy
+
+Folders do not define knowledge.
+
+Domains define knowledge.
+
+Documents define truth.
+
+Relationships define understanding.
+
+This distinction allows the repository to scale beyond simple file organization.
+
+---
+
+# Physical vs Logical Organization
+
+The repository contains two complementary structures.
+
+## Physical Structure
+
+Represents folders and files.
+
+Optimized for Git.
+
+Optimized for navigation.
+
+---
+
+## Logical Structure
+
+Represents concepts.
+
+Capabilities.
+
+Modules.
+
+Events.
+
+Agents.
+
+Dependencies.
+
+Optimized for humans and AI reasoning.
+
+---
+
+# Logical Navigation
+
+A document should never be discovered only because of its folder.
+
+Instead, every document must expose:
+
+- Related Documents
+- Related Modules
+- Related APIs
+- Related Capabilities
+- Related Events
+- Related Database Objects
+- Related Decisions
+
+This transforms the repository into a navigable Knowledge Graph.
+
+---
+
+# Domain Ownership
+
+Each document has exactly one owner.
+
+Ownership is defined by the Knowledge Domain.
+
+Cross-domain references are unlimited.
+
+Ownership is unique.
+
+Example:
+
+Customer Analytics
+
+Owner:
+
+Analytics Domain
+
+References:
+
+Business
+
+Architecture
+
+AI
+
+Security
+
+Operations
+
+---
+
+# Repository Evolution Rules
+
+The repository grows by extending domains.
+
+Never by creating disconnected folders.
+
+A new folder requires:
+
+- Architectural justification.
+- Domain owner.
+- Naming convention.
+- Update of FOUNDATION_MASTER_TREE.
+- Update of PROJECT_MASTER_INDEX.
+
+---
+
+# Repository Stability
+
+Folder names should rarely change.
+
+Document IDs never change.
+
+Knowledge Domains evolve.
+
+Relationships grow.
+
+The repository structure must remain stable over multiple years.
+
+---
+
+# Foundation Domain
+
+The Foundation Domain contains the rules that govern every other domain.
+
+No document outside Foundation may redefine standards already established here.
+
+Foundation acts as the constitutional layer of the Knowledge Base.
+
+Changes to Foundation require architectural review before approval.
+
