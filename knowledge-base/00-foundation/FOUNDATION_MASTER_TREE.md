@@ -456,3 +456,296 @@ Foundation acts as the constitutional layer of the Knowledge Base.
 
 Changes to Foundation require architectural review before approval.
 
+---
+
+# Knowledge Graph Architecture
+
+## Executive Overview
+
+The RAE Platform Knowledge Base is not designed as a collection of independent Markdown files.
+
+It is designed as a **Knowledge Graph**.
+
+Every document represents a node.
+
+Every explicit relationship represents an edge.
+
+Together they form a semantic network that allows both humans and AI agents to understand the platform from any starting point.
+
+---
+
+# Why a Knowledge Graph?
+
+Traditional documentation answers:
+
+> "Where is this document?"
+
+The RAE Knowledge Graph answers:
+
+- Why does this document exist?
+- What depends on it?
+- Which capabilities does it describe?
+- Which APIs implement it?
+- Which database entities support it?
+- Which AI agents consume it?
+- Which dashboards visualize it?
+- Which tenants use it?
+
+Knowledge is therefore organized by meaning rather than by file location.
+
+---
+
+# Graph Philosophy
+
+Every document must answer three questions:
+
+1. What do I describe?
+2. Who depends on me?
+3. What do I depend on?
+
+If any of these questions cannot be answered, the document is considered semantically incomplete.
+
+---
+
+# Graph Layers
+
+The Knowledge Graph is organized into interconnected layers.
+
+```text
+Vision
+│
+Business
+│
+Capabilities
+│
+Modules
+│
+Services
+│
+APIs
+│
+Events
+│
+Database
+│
+Infrastructure
+│
+Deployments
+│
+Monitoring
+│
+Analytics
+│
+Artificial Intelligence
+│
+User Experience
+```
+
+Knowledge always flows downward.
+
+Traceability always flows upward.
+
+---
+
+# Knowledge Node Types
+
+Every node belongs to exactly one primary type.
+
+| Prefix | Node Type |
+|---------|-----------|
+| DOC | Documentation |
+| CAP | Capability |
+| MOD | Module |
+| API | API |
+| EVT | Event |
+| DB | Database Object |
+| AI | AI Agent |
+| UX | UX Component |
+| SEC | Security Rule |
+| TEN | Tenant |
+| DEV | Device |
+| ADR | Architecture Decision |
+| DEC | Business Decision |
+| KPI | KPI |
+| CMP | Campaign |
+| PLN | Playlist |
+| AUD | Audio Asset |
+
+Additional prefixes may be introduced through architectural review.
+
+---
+
+# Relationship Types
+
+Relationships are explicit.
+
+The following relationship types are officially supported.
+
+| Relationship | Description |
+|--------------|-------------|
+| depends_on | Requires another node |
+| uses | Consumes functionality |
+| owns | Primary ownership |
+| implements | Technical implementation |
+| extends | Adds behaviour |
+| references | Informational relationship |
+| emits | Produces an event |
+| listens_to | Consumes an event |
+| stores | Persists information |
+| visualizes | Displays information |
+| manages | Administrative responsibility |
+| secures | Security ownership |
+| analyzes | Analytical ownership |
+
+Relationships must always be directional.
+
+---
+
+# Example Relationship
+
+Capability
+
+Campaign Management
+
+↓
+
+implemented_by
+
+↓
+
+Campaign Engine
+
+↓
+
+uses
+
+↓
+
+Playlist Engine
+
+↓
+
+calls
+
+↓
+
+Mureka Provider
+
+↓
+
+stores
+
+↓
+
+Music Database
+
+↓
+
+visualized_by
+
+↓
+
+Campaign Dashboard
+
+---
+
+# Semantic Navigation
+
+Documents should never rely only on hyperlinks.
+
+Instead they expose semantic relationships.
+
+Example.
+
+```
+Related Capabilities
+
+CAP-004
+
+CAP-009
+
+Related Modules
+
+MOD-006
+
+MOD-011
+
+Related APIs
+
+API-004
+
+API-009
+
+Related Events
+
+EVT-021
+
+EVT-022
+
+Related Decisions
+
+ADR-004
+
+DEC-009
+```
+
+This allows AI agents to traverse the repository intelligently.
+
+---
+
+# AI Traversal Rules
+
+Every AI agent interacting with the Knowledge Base should:
+
+1. Read the current document.
+2. Read all mandatory dependencies.
+3. Read related architectural decisions.
+4. Read referenced capabilities.
+5. Ignore deprecated relationships unless explicitly requested.
+
+This ensures deterministic reasoning.
+
+---
+
+# Semantic Completeness
+
+A document is considered semantically complete only if it contains:
+
+- Related Documents
+- Related Capabilities
+- Related Modules
+- Related APIs (if applicable)
+- Related Events (if applicable)
+- Related Database Objects (if applicable)
+- Related Decisions
+- Knowledge Domain
+- Dependency Level
+
+---
+
+# Circular Dependency Policy
+
+Circular dependencies are prohibited.
+
+If detected, the architecture must be redesigned.
+
+The Foundation domain is responsible for preventing semantic cycles.
+
+---
+
+# Graph Evolution
+
+The Knowledge Graph is expected to grow continuously.
+
+New node types.
+
+New relationships.
+
+New domains.
+
+New capabilities.
+
+However, existing node identifiers must never change.
+
+Stability of identifiers is mandatory to preserve long-term traceability.
+
