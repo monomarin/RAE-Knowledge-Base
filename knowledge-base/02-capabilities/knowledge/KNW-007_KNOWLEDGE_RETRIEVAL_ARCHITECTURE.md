@@ -2696,3 +2696,886 @@ Context Relevance
 Reasoning Success Rate
 
 Average Context Size
+
+---
+
+# Part 6 — Observability, Governance & Operational Excellence
+
+---
+
+# Executive Summary
+
+Enterprise Retrieval must be fully observable.
+
+Every retrieval decision shall be measurable, explainable, reproducible and auditable.
+
+Observability is not limited to infrastructure metrics.
+
+It includes semantic quality, governance compliance, evidence quality and business effectiveness.
+
+---
+
+# Observability Philosophy
+
+The Retrieval Capability SHALL answer:
+
+- What happened?
+- Why did it happen?
+- Which evidence was selected?
+- Which evidence was rejected?
+- Which policies were applied?
+- How confident is the result?
+- Can the retrieval be reproduced?
+
+---
+
+# Enterprise Observability Model
+
+Observability is composed of five complementary dimensions.
+
+1. Operational Observability
+2. Retrieval Observability
+3. Semantic Observability
+4. Governance Observability
+5. Business Observability
+
+---
+
+# Operational Observability
+
+Measures platform execution.
+
+Metrics include:
+
+- latency
+- throughput
+- concurrency
+- retries
+- failures
+- timeout rate
+- cache utilization
+- resource consumption
+
+---
+
+# Retrieval Observability
+
+Measures retrieval effectiveness.
+
+Metrics include:
+
+- retrieval duration
+- candidate count
+- ranking duration
+- context assembly duration
+- context size
+- compression ratio
+- retrieval success rate
+
+---
+
+# Semantic Observability
+
+Measures knowledge quality.
+
+Metrics include:
+
+- semantic precision
+- semantic recall
+- duplicate detection
+- concept coverage
+- context completeness
+- ambiguity resolution rate
+- semantic drift detection
+
+---
+
+# Governance Observability
+
+Measures enterprise compliance.
+
+Metrics include:
+
+- policy violations
+- rejected evidence
+- expired knowledge usage
+- authority compliance
+- lineage completeness
+- audit completeness
+- retention compliance
+
+---
+
+# Business Observability
+
+Measures business impact.
+
+Metrics include:
+
+- successful answers
+- failed answers
+- clarification requests
+- user satisfaction
+- business objective completion
+- task completion rate
+- operational impact
+
+---
+
+# Retrieval Audit Trail
+
+Every retrieval SHALL generate an immutable audit record.
+
+The audit SHALL include:
+
+- Retrieval Identifier
+- Timestamp
+- User or Agent Identifier
+- Intent
+- Retrieval Plan
+- Executed Retrievers
+- Selected Evidence
+- Rejected Evidence
+- Applied Policies
+- Confidence Scores
+- Context Package Identifier
+- Execution Metrics
+
+---
+
+# Audit Diagram
+
+```mermaid
+flowchart TD
+
+REQUEST[Request]
+
+PLAN[Retrieval Plan]
+
+RETRIEVAL[Retrieval Execution]
+
+RANKING[Ranking]
+
+VALIDATION[Validation]
+
+CONTEXT[Context Package]
+
+AUDIT[Audit Log]
+
+REQUEST --> PLAN
+PLAN --> RETRIEVAL
+RETRIEVAL --> RANKING
+RANKING --> VALIDATION
+VALIDATION --> CONTEXT
+CONTEXT --> AUDIT
+```
+
+---
+
+# Explainability Model
+
+Every retrieval SHALL expose:
+
+Intent
+
+↓
+
+Strategy
+
+↓
+
+Evidence
+
+↓
+
+Ranking
+
+↓
+
+Policies
+
+↓
+
+Confidence
+
+↓
+
+Context
+
+Every decision shall be reconstructable.
+
+---
+
+# Traceability
+
+Every Context Package SHALL be traceable back to:
+
+Knowledge Source
+
+↓
+
+Knowledge Asset
+
+↓
+
+Chunk
+
+↓
+
+Embedding Reference
+
+↓
+
+Retriever
+
+↓
+
+Ranking Decision
+
+↓
+
+Evidence Validation
+
+↓
+
+Context Builder
+
+↓
+
+Reasoning Input
+
+---
+
+# Governance Enforcement
+
+The Retrieval Capability SHALL enforce:
+
+- Access Control
+- Information Classification
+- Retention Policies
+- Jurisdiction Rules
+- Privacy Policies
+- Enterprise Compliance
+
+No consumer may bypass governance validation.
+
+---
+
+# Security Considerations
+
+Retrieval SHALL support:
+
+- authentication
+- authorization
+- least privilege
+- attribute-based access control
+- role-based access control
+- tenant isolation
+- secure audit logging
+- confidentiality enforcement
+
+---
+
+# Multi-Tenant Considerations
+
+The Retrieval Capability SHALL support:
+
+- tenant isolation
+- tenant-specific policies
+- tenant-specific indexes
+- tenant-specific metadata
+- tenant-specific governance
+- shared infrastructure with isolated knowledge domains
+
+---
+
+# Scalability
+
+The architecture SHALL support:
+
+- horizontal scaling
+- distributed retrieval
+- distributed ranking
+- distributed context assembly
+- federated execution
+- regional deployments
+- high availability
+
+---
+
+# Reliability
+
+The Retrieval Capability SHALL tolerate:
+
+- retriever failures
+- provider failures
+- network failures
+- partial index failures
+- cache failures
+- connector failures
+
+Fallback strategies SHALL be defined for every critical component.
+
+---
+
+# Service Level Objectives
+
+Example targets:
+
+Retrieval Availability
+
+99.95%
+
+Average Retrieval Latency
+
+< 300 ms
+
+Critical Retrieval Latency
+
+< 150 ms
+
+Evidence Validation
+
+100%
+
+Governance Compliance
+
+100%
+
+Audit Completeness
+
+100%
+
+---
+
+# Key Performance Indicators
+
+Operational
+
+- Availability
+- Throughput
+- Error Rate
+- Average Latency
+
+Semantic
+
+- Precision@K
+- Recall@K
+- Context Relevance
+- Context Quality Score
+
+Governance
+
+- Compliance Rate
+- Policy Enforcement Rate
+- Lineage Completeness
+
+Business
+
+- Goal Completion
+- User Satisfaction
+- Successful Reasoning Rate
+
+---
+
+# Failure Modes
+
+Potential failures include:
+
+- semantic drift
+- stale knowledge
+- missing evidence
+- conflicting policies
+- ranking degradation
+- unavailable providers
+- corrupted indexes
+- governance violations
+
+Each failure mode SHALL have:
+
+- detection
+- mitigation
+- recovery
+- audit record
+
+---
+
+# Architecture Decisions (Part 6)
+
+## ADR-KNW-007-026
+
+Observability SHALL extend beyond infrastructure metrics.
+
+---
+
+## ADR-KNW-007-027
+
+Every retrieval SHALL be fully auditable.
+
+---
+
+## ADR-KNW-007-028
+
+Every Context Package SHALL be reproducible.
+
+---
+
+## ADR-KNW-007-029
+
+Governance enforcement SHALL be mandatory.
+
+---
+
+## ADR-KNW-007-030
+
+Retrieval quality SHALL be continuously measurable.
+
+---
+
+# Success Criteria (Part 6)
+
+The Retrieval Capability is considered operationally successful when:
+
+Every retrieval is explainable.
+
+Every retrieval is reproducible.
+
+Every Context Package is auditable.
+
+Every governance policy is enforced.
+
+Operational and semantic quality remain measurable.
+
+---
+
+# Part 7 — Enterprise Interfaces, Canonical Contracts & Distributed Retrieval
+
+---
+
+# Executive Summary
+
+The Retrieval Capability exposes enterprise contracts rather than implementation-specific APIs.
+
+Every downstream capability SHALL consume standardized retrieval objects.
+
+These contracts provide a stable abstraction layer between enterprise knowledge and cognitive processing.
+
+---
+
+# Canonical Retrieval Objects
+
+The Retrieval Capability defines the following canonical enterprise objects:
+
+- Retrieval Request
+- Retrieval Intent
+- Retrieval Plan
+- Retrieval Candidate
+- Trusted Evidence
+- Context Package
+- Retrieval Result
+
+These objects SHALL remain implementation independent.
+
+---
+
+# Canonical Retrieval Request
+
+Represents an enterprise request for contextual knowledge.
+
+Example
+
+```yaml
+retrieval_request:
+
+  id: RET-000001
+
+  timestamp: 2026-07-20T15:30:00Z
+
+  consumer: Reasoning
+
+  user: anonymous
+
+  intent: Policy Lookup
+
+  objective: Find current retail pricing policy
+
+  language: en
+
+  priority: high
+
+  latency_budget: 250ms
+
+  security_context: RetailManager
+
+  tenant: tenant-retail-01
+```
+
+---
+
+# Canonical Retrieval Plan
+
+Represents the execution strategy selected by the Retrieval Planner.
+
+```yaml
+retrieval_plan:
+
+  semantic: enabled
+
+  lexical: enabled
+
+  graph: enabled
+
+  metadata: enabled
+
+  business_rules: enabled
+
+  cache: enabled
+
+  reranking: cross_encoder
+
+  compression: adaptive
+
+  target_chunks: 15
+
+  context_budget: 8000
+
+  max_latency: 250ms
+```
+
+---
+
+# Canonical Retrieval Candidate
+
+Every discovered candidate SHALL conform to the same enterprise model.
+
+```yaml
+candidate:
+
+  candidate_id: CAND-001
+
+  chunk: CHK-458
+
+  asset: AST-102
+
+  retriever: Semantic
+
+  preliminary_score: 0.92
+
+  authority: Enterprise Policy
+
+  metadata_score: 0.94
+
+  confidence: 0.90
+```
+
+---
+
+# Trusted Evidence Object
+
+Trusted Evidence represents validated enterprise knowledge.
+
+```yaml
+evidence:
+
+  evidence_id: EVD-1001
+
+  candidate: CAND-001
+
+  validation: approved
+
+  authority: Architecture Board
+
+  lineage: complete
+
+  governance: compliant
+
+  confidence: 0.97
+```
+
+---
+
+# Canonical Context Package
+
+The Context Package is the official Retrieval output.
+
+```yaml
+context_package:
+
+  context_id: CTX-889
+
+  intent: Policy Lookup
+
+  summary: Current pricing policy.
+
+  knowledge: 12 chunks
+
+  relationships: 32
+
+  evidence: 14
+
+  confidence: 0.96
+
+  compression: adaptive
+
+  token_budget: 7600
+
+  generated_at: 2026-07-20T15:31:02Z
+```
+
+---
+
+# Retrieval Result
+
+Returned to downstream capabilities.
+
+```yaml
+retrieval_result:
+
+  status: SUCCESS
+
+  context: CTX-889
+
+  confidence: 0.96
+
+  latency: 184ms
+
+  trace: TRACE-2009
+```
+
+---
+
+# Canonical Interface Diagram
+
+```mermaid
+flowchart LR
+
+REQUEST[Retrieval Request]
+
+PLAN[Retrieval Plan]
+
+CANDIDATES[Candidates]
+
+EVIDENCE[Trusted Evidence]
+
+CONTEXT[Context Package]
+
+RESULT[Retrieval Result]
+
+REQUEST --> PLAN
+PLAN --> CANDIDATES
+CANDIDATES --> EVIDENCE
+EVIDENCE --> CONTEXT
+CONTEXT --> RESULT
+```
+
+---
+
+# Consumer Interfaces
+
+Consumers include:
+
+- Memory
+- Reasoning
+- Planning
+- Execution
+- Agent Platform
+- RAE Platform
+- Future Cognitive Capabilities
+
+All consumers SHALL receive the same Context Package format.
+
+---
+
+# Distributed Retrieval
+
+Large enterprises require retrieval across multiple knowledge domains.
+
+The architecture SHALL support distributed retrieval without exposing topology.
+
+---
+
+# Distributed Domains
+
+Examples
+
+- Retail
+- Finance
+- Legal
+- Security
+- Engineering
+- Operations
+- Healthcare
+- Manufacturing
+- Government
+
+Each domain remains autonomous.
+
+Retrieval remains unified.
+
+---
+
+# Federated Architecture
+
+```mermaid
+flowchart LR
+
+REQUEST[Request]
+
+ORCH[Retrieval Orchestrator]
+
+RETAIL[Retail]
+FINANCE[Finance]
+ENG[Engineering]
+SEC[Security]
+
+MERGE[Context Merge]
+
+RANKING[Ranking]
+
+PACKAGE[Context Package]
+
+REQUEST --> ORCH
+
+ORCH --> RETAIL
+ORCH --> FINANCE
+ORCH --> ENG
+ORCH --> SEC
+
+RETAIL --> MERGE
+FINANCE --> MERGE
+ENG --> MERGE
+SEC --> MERGE
+
+MERGE --> RANKING
+RANKING --> PACKAGE
+```
+
+---
+
+# Cross-Domain Retrieval
+
+Cross-domain retrieval SHALL:
+
+- respect governance;
+- respect security boundaries;
+- preserve lineage;
+- maintain traceability;
+- avoid duplication.
+
+---
+
+# Cache Hierarchy
+
+Supported cache layers:
+
+L1 — Execution Cache
+
+L2 — Conversation Cache
+
+L3 — Session Cache
+
+L4 — Enterprise Cache
+
+L5 — Distributed Cache
+
+Each cache SHALL remain independently replaceable.
+
+---
+
+# High Availability
+
+The Retrieval Capability SHALL tolerate:
+
+- retriever failures;
+- cache failures;
+- provider failures;
+- partial domain outages;
+- network partitions.
+
+Retrieval SHALL degrade gracefully.
+
+---
+
+# Disaster Recovery
+
+The architecture SHALL support:
+
+- multi-region deployment;
+- backup indexes;
+- retrieval replay;
+- audit preservation;
+- context reconstruction.
+
+---
+
+# Performance Optimization
+
+Supported optimization techniques include:
+
+- parallel execution;
+- adaptive retrieval;
+- incremental ranking;
+- lazy loading;
+- context caching;
+- early termination;
+- dynamic top-k adjustment.
+
+---
+
+# Cost Optimization
+
+Retrieval SHALL optimize:
+
+- vector operations;
+- cross-encoder execution;
+- token consumption;
+- cache utilization;
+- provider costs.
+
+---
+
+# Future Evolution
+
+The architecture is designed to support:
+
+- GraphRAG
+- Agentic Retrieval
+- Multimodal Retrieval
+- Neuro-Symbolic Retrieval
+- Streaming Retrieval
+- Autonomous Retrieval
+- Knowledge Mesh
+
+Future retrieval paradigms SHALL integrate through canonical interfaces.
+
+---
+
+# Architecture Decisions (Part 7)
+
+## ADR-KNW-007-031
+
+Canonical contracts SHALL remain stable.
+
+---
+
+## ADR-KNW-007-032
+
+Context Package becomes the official enterprise retrieval artifact.
+
+---
+
+## ADR-KNW-007-033
+
+Distributed retrieval SHALL remain transparent.
+
+---
+
+## ADR-KNW-007-034
+
+Federated knowledge SHALL preserve autonomy.
+
+---
+
+## ADR-KNW-007-035
+
+Retrieval SHALL degrade gracefully.
