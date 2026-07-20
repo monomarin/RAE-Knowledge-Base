@@ -2224,3 +2224,475 @@ Conflict Detection Rate
 Hallucination Prevention Rate
 
 Average Ranking Latency
+
+---
+
+# Part 5 — Context Builder & Context Optimization
+
+---
+
+# Executive Summary
+
+The objective of Retrieval is not returning documents.
+
+The objective is constructing the best possible context for downstream cognitive reasoning.
+
+Context construction is an active enterprise process.
+
+It combines evidence, governance, business priorities and semantic coherence into a single contextual representation.
+
+---
+
+# Context Philosophy
+
+Information
+
+≠
+
+Knowledge
+
+Knowledge
+
+≠
+
+Context
+
+Context
+
+≠
+
+Prompt
+
+Each transformation increases enterprise value.
+
+---
+
+# Canonical Context Pipeline
+
+```text
+Trusted Evidence
+
+↓
+
+Context Builder
+
+↓
+
+Context Validation
+
+↓
+
+Deduplication
+
+↓
+
+Semantic Ordering
+
+↓
+
+Compression
+
+↓
+
+Optimization
+
+↓
+
+Context Package
+
+↓
+
+Reasoning
+```
+
+---
+
+# Context Builder
+
+## Purpose
+
+Transform validated evidence into coherent enterprise context.
+
+---
+
+## Responsibilities
+
+The Context Builder SHALL:
+
+- merge evidence;
+- remove redundancy;
+- preserve semantic continuity;
+- preserve chronology;
+- preserve causality;
+- preserve governance;
+- preserve evidence lineage.
+
+---
+
+# Context Inputs
+
+The Context Builder receives:
+
+- Trusted Evidence
+- Metadata
+- Business Rules
+- Conversation Context
+- User Profile
+- Knowledge Graph Relationships
+- Enterprise Policies
+
+---
+
+# Context Outputs
+
+Produces:
+
+Context Package
+
+---
+
+# Context Assembly
+
+Context SHALL be assembled using multiple dimensions.
+
+---
+
+## Semantic Dimension
+
+Organize ideas by conceptual proximity.
+
+---
+
+## Business Dimension
+
+Prioritize business-critical knowledge.
+
+---
+
+## Temporal Dimension
+
+Maintain chronological consistency.
+
+---
+
+## Governance Dimension
+
+Preserve compliance constraints.
+
+---
+
+## Relationship Dimension
+
+Maintain references between concepts.
+
+---
+
+# Context Graph
+
+Instead of a simple list of Chunks, ECOS internally represents context as a graph.
+
+```mermaid
+graph LR
+
+Q(Query)
+
+A(Chunk A)
+
+B(Chunk B)
+
+C(Chunk C)
+
+D(Policy)
+
+E(Procedure)
+
+F(Product)
+
+Q --> A
+
+A --> B
+
+A --> D
+
+B --> E
+
+C --> F
+```
+
+The graph preserves relationships.
+
+The prompt receives a linearized representation.
+
+---
+
+# Context Ordering
+
+Ordering SHALL consider:
+
+Semantic relevance
+
+↓
+
+Authority
+
+↓
+
+Dependencies
+
+↓
+
+Chronology
+
+↓
+
+Business importance
+
+↓
+
+Supporting evidence
+
+Ordering SHALL remain deterministic.
+
+---
+
+# Duplicate Elimination
+
+Duplicates SHALL be detected using:
+
+- Canonical identifiers
+- Semantic similarity
+- Embedding similarity
+- Metadata
+- Knowledge lineage
+- Version history
+
+Duplicate removal SHALL preserve evidence references.
+
+---
+
+# Context Validation
+
+Every Context Package SHALL satisfy:
+
+- Semantic consistency
+- Policy compliance
+- Complete evidence
+- No orphan knowledge
+- No conflicting authority
+- No prohibited information
+
+---
+
+# Context Compression
+
+Purpose
+
+Reduce token usage while preserving knowledge quality.
+
+Compression SHALL preserve:
+
+- Meaning
+- Authority
+- Relationships
+- Evidence
+- Business intent
+
+---
+
+# Compression Techniques
+
+Supported techniques:
+
+- Semantic summarization
+- Sentence fusion
+- Concept aggregation
+- Metadata optimization
+- Reference compression
+- Hierarchy reduction
+
+Future techniques may be added.
+
+---
+
+# Adaptive Compression
+
+Compression SHALL adapt according to:
+
+- Available context window
+- Consumer capability
+- Reasoning engine
+- Latency objective
+- Confidence level
+- Knowledge density
+
+---
+
+# Context Budget
+
+Every Retrieval SHALL receive:
+
+- Maximum Tokens
+- Maximum Chunks
+- Maximum Concepts
+- Maximum Relationships
+- Maximum Evidence Objects
+
+The Context Builder SHALL optimize within these limits.
+
+---
+
+# Context Integrity
+
+The following SHALL NEVER be lost:
+
+- Original meaning
+- Evidence lineage
+- Authority
+- Policy constraints
+- Critical business rules
+
+---
+
+# Context Package
+
+The final output of Retrieval.
+
+Example
+
+```yaml
+context:
+
+  id: CTX-0001
+
+  confidence: 0.96
+
+  knowledge: 12 chunks
+
+  relationships: 28
+
+  evidence: 16
+
+  policies: 3
+
+  business_rules: 2
+
+  authority: enterprise
+
+  compression: adaptive
+
+  token_count: 6420
+```
+
+---
+
+# Context Package Structure
+
+Contains:
+
+- Executive Summary
+- Evidence
+- Business Rules
+- Policies
+- Knowledge Relationships
+- Metadata
+- Lineage
+- Confidence
+- Context Statistics
+- Retrieval Trace
+
+---
+
+# Context Explainability
+
+Every Context Package SHALL explain:
+
+- Why each evidence was selected.
+- Why evidence was rejected.
+- Applied policies.
+- Applied ranking.
+- Applied compression.
+- Confidence calculation.
+
+---
+
+# Context Diagram
+
+```mermaid
+flowchart TD
+
+EVIDENCE[Trusted Evidence]
+
+MERGE[Merge Evidence]
+
+VALIDATE[Validate Context]
+
+DEDUP[Remove Duplicates]
+
+ORDER[Semantic Ordering]
+
+COMPRESS[Compress]
+
+PACKAGE[Context Package]
+
+REASONING[Reasoning Engine]
+
+EVIDENCE --> MERGE
+MERGE --> VALIDATE
+VALIDATE --> DEDUP
+DEDUP --> ORDER
+ORDER --> COMPRESS
+COMPRESS --> PACKAGE
+PACKAGE --> REASONING
+```
+
+---
+
+# Architecture Decisions (Part 5)
+
+## ADR-KNW-007-021
+
+Retrieval outputs Context Packages rather than document collections.
+
+---
+
+## ADR-KNW-007-022
+
+Context SHALL preserve evidence lineage.
+
+---
+
+## ADR-KNW-007-023
+
+Compression SHALL preserve semantic integrity.
+
+---
+
+## ADR-KNW-007-024
+
+Context ordering SHALL remain deterministic.
+
+---
+
+## ADR-KNW-007-025
+
+Context Packages SHALL remain explainable.
+
+---
+
+# KPIs (Part 5)
+
+Context Quality
+
+Compression Ratio
+
+Semantic Preservation
+
+Evidence Preservation
+
+Token Efficiency
+
+Context Relevance
+
+Reasoning Success Rate
+
+Average Context Size
