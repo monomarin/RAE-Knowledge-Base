@@ -1634,3 +1634,593 @@ Retriever Availability
 Federated Retrieval Success
 
 Parallel Execution Efficiency
+
+---
+
+# Part 4 — Ranking Engine & Evidence Validation
+
+---
+
+# Executive Summary
+
+Candidate Discovery maximizes recall.
+
+Ranking maximizes precision.
+
+Evidence Validation maximizes trust.
+
+These three responsibilities SHALL remain independent.
+
+The objective of Ranking is not selecting the most similar Chunk.
+
+The objective is selecting the most trustworthy enterprise evidence.
+
+---
+
+# Enterprise Ranking Philosophy
+
+Ranking SHALL evaluate knowledge using multiple dimensions.
+
+Similarity alone SHALL NEVER determine final ordering.
+
+Enterprise knowledge requires additional evaluation including governance, authority, freshness, provenance and business relevance.
+
+---
+
+# Canonical Ranking Pipeline
+
+```text
+Candidate Pool
+
+↓
+
+Candidate Normalization
+
+↓
+
+Policy Filtering
+
+↓
+
+Quality Evaluation
+
+↓
+
+Semantic Ranking
+
+↓
+
+Business Ranking
+
+↓
+
+Authority Evaluation
+
+↓
+
+Freshness Evaluation
+
+↓
+
+Evidence Validation
+
+↓
+
+Conflict Resolution
+
+↓
+
+Final Ranking
+
+↓
+
+Trusted Evidence Set
+```
+
+---
+
+# Ranking Engine
+
+## Purpose
+
+The Ranking Engine assigns a composite score to every candidate based on multiple independent evaluation dimensions.
+
+---
+
+## Responsibilities
+
+The Ranking Engine SHALL:
+
+- evaluate semantic relevance;
+- evaluate lexical relevance;
+- evaluate metadata quality;
+- evaluate business importance;
+- evaluate authority;
+- evaluate freshness;
+- evaluate confidence;
+- generate explainable scores.
+
+---
+
+# Ranking Factors
+
+Every candidate SHALL receive independent scores.
+
+## Semantic Score
+
+Measures conceptual similarity.
+
+Inputs:
+
+- embeddings;
+- semantic intent;
+- contextual similarity.
+
+---
+
+## Lexical Score
+
+Measures textual correspondence.
+
+Inputs:
+
+- keywords;
+- identifiers;
+- product codes;
+- API names.
+
+---
+
+## Metadata Quality Score
+
+Evaluates metadata completeness.
+
+Criteria include:
+
+- ownership;
+- classification;
+- language;
+- tags;
+- lineage.
+
+---
+
+## Authority Score
+
+Measures enterprise trust.
+
+Possible authority sources:
+
+- approved policy;
+- official documentation;
+- enterprise architecture;
+- product owner;
+- compliance office.
+
+Authority SHALL override popularity.
+
+---
+
+## Freshness Score
+
+Evaluates temporal validity.
+
+Factors:
+
+- publication date;
+- last review;
+- expiration policy;
+- update frequency.
+
+Older knowledge SHALL NOT automatically receive lower scores.
+
+---
+
+## Governance Score
+
+Evaluates governance compliance.
+
+Checks:
+
+- approved;
+- published;
+- active;
+- retained;
+- auditable.
+
+Knowledge violating governance SHALL be excluded.
+
+---
+
+## Business Priority Score
+
+Evaluates business relevance.
+
+Possible signals:
+
+- operational impact;
+- compliance impact;
+- customer impact;
+- financial importance.
+
+---
+
+## Usage Score
+
+Derived from historical retrieval behavior.
+
+Signals include:
+
+- retrieval frequency;
+- successful answers;
+- user feedback;
+- agent success rate.
+
+Usage SHALL NEVER replace authority.
+
+---
+
+# Composite Ranking
+
+Final ranking SHALL combine multiple independent evaluations.
+
+Example
+
+```text
+Final Score
+
+=
+
+Semantic
+
++
+
+Authority
+
++
+
+Freshness
+
++
+
+Governance
+
++
+
+Business
+
++
+
+Metadata
+
++
+
+Usage
+```
+
+The exact weighting SHALL remain configurable.
+
+---
+
+# Multi-Stage Ranking
+
+Stage 1
+
+Fast Candidate Ranking
+
+↓
+
+Stage 2
+
+Deep Semantic Ranking
+
+↓
+
+Stage 3
+
+Business Evaluation
+
+↓
+
+Stage 4
+
+Governance Evaluation
+
+↓
+
+Stage 5
+
+Evidence Validation
+
+↓
+
+Stage 6
+
+Final Ordering
+
+---
+
+# Cross Encoder Re-Ranking
+
+## Purpose
+
+Improve precision among top-ranked candidates.
+
+Re-ranking SHALL analyze the relationship between:
+
+Query
+
+↓
+
+Candidate
+
+↓
+
+Combined Meaning
+
+Rather than evaluating candidates independently.
+
+---
+
+# Re-Ranking Flow
+
+```mermaid
+flowchart TD
+
+TOPK[Top Candidates]
+
+CROSS[Cross Encoder]
+
+SIM[Semantic Similarity]
+
+BUS[Business Score]
+
+AUTH[Authority Score]
+
+FINAL[Final Score]
+
+TOPK --> CROSS
+CROSS --> SIM
+SIM --> BUS
+BUS --> AUTH
+AUTH --> FINAL
+```
+
+---
+
+# Evidence Validation
+
+## Purpose
+
+Determine whether retrieved knowledge may safely support AI reasoning.
+
+Retrieval without validation SHALL NOT occur.
+
+---
+
+## Validation Criteria
+
+Evidence SHALL be evaluated for:
+
+- authenticity;
+- provenance;
+- completeness;
+- consistency;
+- governance;
+- authority;
+- recency;
+- confidence.
+
+---
+
+# Evidence Types
+
+Supported evidence includes:
+
+- enterprise policy;
+- architecture document;
+- technical specification;
+- approved procedure;
+- source code;
+- operational manual;
+- audit report;
+- configuration baseline.
+
+---
+
+# Evidence Confidence
+
+Every evidence object SHALL expose:
+
+```yaml
+confidence:
+
+  semantic: 0.96
+
+  authority: 1.00
+
+  governance: 1.00
+
+  freshness: 0.94
+
+  overall: 0.97
+```
+
+Confidence SHALL remain explainable.
+
+---
+
+# Conflict Resolution
+
+Different sources may disagree.
+
+The Validation Engine SHALL detect conflicts.
+
+Example
+
+Policy A
+
+↓
+
+20% Discount
+
+Policy B
+
+↓
+
+15% Discount
+
+The engine SHALL:
+
+- detect inconsistency;
+- evaluate authority;
+- evaluate publication date;
+- evaluate governance status;
+- retain evidence lineage.
+
+Conflicts SHALL NOT be silently ignored.
+
+---
+
+# Trust Model
+
+Enterprise trust is calculated from multiple dimensions.
+
+Trust factors include:
+
+- ownership;
+- governance;
+- publication status;
+- source authority;
+- audit history;
+- review history;
+- consistency.
+
+---
+
+# Hallucination Prevention
+
+The Retrieval Capability SHALL reduce hallucination by:
+
+- requiring enterprise evidence;
+- validating provenance;
+- rejecting unsupported knowledge;
+- preserving lineage;
+- exposing confidence.
+
+The Retrieval Engine SHALL NEVER fabricate evidence.
+
+---
+
+# Explainability
+
+Every ranked candidate SHALL expose:
+
+- retrieval source;
+- ranking factors;
+- confidence;
+- authority;
+- freshness;
+- governance;
+- evidence chain.
+
+Explainability SHALL be machine-readable.
+
+---
+
+# Ranking Diagram
+
+```mermaid
+flowchart LR
+
+POOL[Candidate Pool]
+
+SEM[Semantic Score]
+
+AUTH[Authority Score]
+
+META[Metadata Score]
+
+BUS[Business Score]
+
+FRESH[Freshness]
+
+VAL[Evidence Validation]
+
+FINAL[Trusted Evidence]
+
+POOL --> SEM
+SEM --> AUTH
+AUTH --> META
+META --> BUS
+BUS --> FRESH
+FRESH --> VAL
+VAL --> FINAL
+```
+
+---
+
+# Failure Handling
+
+If no trusted evidence exists:
+
+The engine SHALL:
+
+- reduce confidence;
+- request clarification;
+- expand retrieval scope;
+- return partial context when permitted.
+
+The engine SHALL NEVER fabricate trusted evidence.
+
+---
+
+# Architecture Decisions (Part 4)
+
+## ADR-KNW-007-016
+
+Ranking SHALL be multi-factor.
+
+---
+
+## ADR-KNW-007-017
+
+Authority supersedes popularity.
+
+---
+
+## ADR-KNW-007-018
+
+Evidence SHALL be validated before reasoning.
+
+---
+
+## ADR-KNW-007-019
+
+Ranking SHALL remain explainable.
+
+---
+
+## ADR-KNW-007-020
+
+Conflict detection is mandatory.
+
+---
+
+# KPIs (Part 4)
+
+Ranking Precision
+
+Top-1 Accuracy
+
+Top-5 Accuracy
+
+Authority Compliance
+
+Evidence Trust Score
+
+Conflict Detection Rate
+
+Hallucination Prevention Rate
+
+Average Ranking Latency
